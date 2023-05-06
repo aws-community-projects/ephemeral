@@ -1,0 +1,489 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelfDestructConstruct State Machine Created 1`] = `
+Object {
+  "Mappings": Object {
+    "DefaultCrNodeVersionMap": Object {
+      "af-south-1": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-east-1": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-northeast-1": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-northeast-2": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-northeast-3": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-south-1": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-south-2": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-southeast-1": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-southeast-2": Object {
+        "value": "nodejs16.x",
+      },
+      "ap-southeast-3": Object {
+        "value": "nodejs16.x",
+      },
+      "ca-central-1": Object {
+        "value": "nodejs16.x",
+      },
+      "cn-north-1": Object {
+        "value": "nodejs16.x",
+      },
+      "cn-northwest-1": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-central-1": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-central-2": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-north-1": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-south-1": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-south-2": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-west-1": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-west-2": Object {
+        "value": "nodejs16.x",
+      },
+      "eu-west-3": Object {
+        "value": "nodejs16.x",
+      },
+      "me-central-1": Object {
+        "value": "nodejs16.x",
+      },
+      "me-south-1": Object {
+        "value": "nodejs16.x",
+      },
+      "sa-east-1": Object {
+        "value": "nodejs16.x",
+      },
+      "us-east-1": Object {
+        "value": "nodejs16.x",
+      },
+      "us-east-2": Object {
+        "value": "nodejs16.x",
+      },
+      "us-gov-east-1": Object {
+        "value": "nodejs16.x",
+      },
+      "us-gov-west-1": Object {
+        "value": "nodejs16.x",
+      },
+      "us-iso-east-1": Object {
+        "value": "nodejs14.x",
+      },
+      "us-iso-west-1": Object {
+        "value": "nodejs14.x",
+      },
+      "us-isob-east-1": Object {
+        "value": "nodejs14.x",
+      },
+      "us-west-1": Object {
+        "value": "nodejs16.x",
+      },
+      "us-west-2": Object {
+        "value": "nodejs16.x",
+      },
+    },
+    "ServiceprincipalMap": Object {
+      "af-south-1": Object {
+        "states": "states.af-south-1.amazonaws.com",
+      },
+      "ap-east-1": Object {
+        "states": "states.ap-east-1.amazonaws.com",
+      },
+      "ap-northeast-1": Object {
+        "states": "states.ap-northeast-1.amazonaws.com",
+      },
+      "ap-northeast-2": Object {
+        "states": "states.ap-northeast-2.amazonaws.com",
+      },
+      "ap-northeast-3": Object {
+        "states": "states.ap-northeast-3.amazonaws.com",
+      },
+      "ap-south-1": Object {
+        "states": "states.ap-south-1.amazonaws.com",
+      },
+      "ap-south-2": Object {
+        "states": "states.ap-south-2.amazonaws.com",
+      },
+      "ap-southeast-1": Object {
+        "states": "states.ap-southeast-1.amazonaws.com",
+      },
+      "ap-southeast-2": Object {
+        "states": "states.ap-southeast-2.amazonaws.com",
+      },
+      "ap-southeast-3": Object {
+        "states": "states.ap-southeast-3.amazonaws.com",
+      },
+      "ca-central-1": Object {
+        "states": "states.ca-central-1.amazonaws.com",
+      },
+      "cn-north-1": Object {
+        "states": "states.cn-north-1.amazonaws.com",
+      },
+      "cn-northwest-1": Object {
+        "states": "states.cn-northwest-1.amazonaws.com",
+      },
+      "eu-central-1": Object {
+        "states": "states.eu-central-1.amazonaws.com",
+      },
+      "eu-central-2": Object {
+        "states": "states.eu-central-2.amazonaws.com",
+      },
+      "eu-north-1": Object {
+        "states": "states.eu-north-1.amazonaws.com",
+      },
+      "eu-south-1": Object {
+        "states": "states.eu-south-1.amazonaws.com",
+      },
+      "eu-south-2": Object {
+        "states": "states.eu-south-2.amazonaws.com",
+      },
+      "eu-west-1": Object {
+        "states": "states.eu-west-1.amazonaws.com",
+      },
+      "eu-west-2": Object {
+        "states": "states.eu-west-2.amazonaws.com",
+      },
+      "eu-west-3": Object {
+        "states": "states.eu-west-3.amazonaws.com",
+      },
+      "me-central-1": Object {
+        "states": "states.me-central-1.amazonaws.com",
+      },
+      "me-south-1": Object {
+        "states": "states.me-south-1.amazonaws.com",
+      },
+      "sa-east-1": Object {
+        "states": "states.sa-east-1.amazonaws.com",
+      },
+      "us-east-1": Object {
+        "states": "states.us-east-1.amazonaws.com",
+      },
+      "us-east-2": Object {
+        "states": "states.us-east-2.amazonaws.com",
+      },
+      "us-gov-east-1": Object {
+        "states": "states.us-gov-east-1.amazonaws.com",
+      },
+      "us-gov-west-1": Object {
+        "states": "states.us-gov-west-1.amazonaws.com",
+      },
+      "us-iso-east-1": Object {
+        "states": "states.amazonaws.com",
+      },
+      "us-iso-west-1": Object {
+        "states": "states.amazonaws.com",
+      },
+      "us-isob-east-1": Object {
+        "states": "states.amazonaws.com",
+      },
+      "us-west-1": Object {
+        "states": "states.us-west-1.amazonaws.com",
+      },
+      "us-west-2": Object {
+        "states": "states.us-west-2.amazonaws.com",
+      },
+    },
+  },
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
+      "DependsOn": Array [
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "bb459fac5f6b4b052aac9803443226d161a5cfe96f4648b21f9e4912c698bf30.zip",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "Arn",
+          ],
+        },
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "DefaultCrNodeVersionMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
+        "Timeout": 120,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MyTestConstructSelfDestructCR7874F45A": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "MyTestConstructSelfDestructCRCustomResourcePolicyB91CB29C",
+      ],
+      "Properties": Object {
+        "Create": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Create\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
+              Object {
+                "Ref": "AWS::StackId",
+              },
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"TestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              Object {
+                "Ref": "MyTestConstructSelfDestructMachine81D02941",
+              },
+              "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
+            ],
+          ],
+        },
+        "Delete": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Delete\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
+              Object {
+                "Ref": "AWS::StackId",
+              },
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"TestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              Object {
+                "Ref": "MyTestConstructSelfDestructMachine81D02941",
+              },
+              "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
+            ],
+          ],
+        },
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Update\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"1683387234305\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
+              Object {
+                "Ref": "AWS::StackId",
+              },
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"TestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              Object {
+                "Ref": "MyTestConstructSelfDestructMachine81D02941",
+              },
+              "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
+            ],
+          ],
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "MyTestConstructSelfDestructCRCustomResourcePolicyB91CB29C": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "states:StartExecution",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Ref": "MyTestConstructSelfDestructMachine81D02941",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "MyTestConstructSelfDestructCRCustomResourcePolicyB91CB29C",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "MyTestConstructSelfDestructMachine81D02941": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "MyTestConstructSelfDestructMachineRoleDefaultPolicy3AE6C977",
+        "MyTestConstructSelfDestructMachineRole2B49E0B0",
+      ],
+      "Properties": Object {
+        "DefinitionString": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"StartAt\\":\\"ListExecutions\\",\\"States\\":{\\"ListExecutions\\":{\\"Next\\":\\"ExecutionsMap\\",\\"Type\\":\\"Task\\",\\"Resource\\":\\"arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":states:::aws-sdk:sfn:listExecutions\\",\\"Parameters\\":{\\"StateMachineArn.$\\":\\"$$.StateMachine.Id\\",\\"StatusFilter\\":\\"RUNNING\\"}},\\"ExecutionsMap\\":{\\"Type\\":\\"Map\\",\\"Next\\":\\"WasDelete?\\",\\"InputPath\\":\\"$.Executions\\",\\"Iterator\\":{\\"StartAt\\":\\"NotSelf?\\",\\"States\\":{\\"NotSelf?\\":{\\"Type\\":\\"Choice\\",\\"Choices\\":[{\\"Not\\":{\\"Variable\\":\\"$.ExecutionArn\\",\\"StringEqualsPath\\":\\"$$.Execution.Id\\"},\\"Next\\":\\"StopExecution\\"}],\\"Default\\":\\"self\\"},\\"self\\":{\\"Type\\":\\"Pass\\",\\"End\\":true},\\"StopExecution\\":{\\"End\\":true,\\"Type\\":\\"Task\\",\\"Resource\\":\\"arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":states:::aws-sdk:sfn:stopExecution\\",\\"Parameters\\":{\\"Cause\\":\\"Superceded\\",\\"ExecutionArn.$\\":\\"$.ExecutionArn\\"}}}}},\\"WasDelete?\\":{\\"Type\\":\\"Choice\\",\\"Choices\\":[{\\"Variable\\":\\"$$.Execution.Input.Action\\",\\"StringEquals\\":\\"Delete\\",\\"Next\\":\\"DeleteSuccess\\"}],\\"Default\\":\\"Wait\\"},\\"Wait\\":{\\"Type\\":\\"Wait\\",\\"Seconds\\":86400,\\"Next\\":\\"DeleteStack\\"},\\"DeleteStack\\":{\\"Next\\":\\"Finished\\",\\"Type\\":\\"Task\\",\\"Resource\\":\\"arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":states:::aws-sdk:cloudformation:deleteStack\\",\\"Parameters\\":{\\"StackName.$\\":\\"$$.Execution.Input.StackName\\"}},\\"Finished\\":{\\"Type\\":\\"Succeed\\"},\\"DeleteSuccess\\":{\\"Type\\":\\"Succeed\\"}}}",
+            ],
+          ],
+        },
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "MyTestConstructSelfDestructMachineRole2B49E0B0",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "MyTestConstructSelfDestructMachineRole2B49E0B0": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": Object {
+                  "Fn::FindInMap": Array [
+                    "ServiceprincipalMap",
+                    Object {
+                      "Ref": "AWS::Region",
+                    },
+                    "states",
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MyTestConstructSelfDestructMachineRoleDefaultPolicy3AE6C977": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "states:ListExecutions",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": "cloudformation:DeleteStack",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": "states:StopExecution",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "MyTestConstructSelfDestructMachineRoleDefaultPolicy3AE6C977",
+        "Roles": Array [
+          Object {
+            "Ref": "MyTestConstructSelfDestructMachineRole2B49E0B0",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
