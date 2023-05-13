@@ -50,3 +50,9 @@ export class MyStack {
   }
 }
 ```
+
+## The Aspect
+
+In version 1.1.0, I added a CDK Aspect that ensures all resources have a removal policy set to destroy (it does this automatically).
+
+It also identifies Buckets that do NOT have `autoDeleteObjects: true` set (including Level 1 CfnBuckets).  For those it throws an error during synth.

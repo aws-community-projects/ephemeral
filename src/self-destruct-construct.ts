@@ -8,10 +8,11 @@ import { Choice,
   Wait,
   WaitTime } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { Duration, Stack } from 'aws-cdk-lib';
+import { Aspects, Duration, Stack } from 'aws-cdk-lib';
 import { AwsCustomResource,
   AwsCustomResourcePolicy,
   PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
+import { SelfDestructAspect } from './self-destruct-aspect';
 
 export interface SelfDestructConstructProps {
   readonly duration: Duration
@@ -124,7 +125,7 @@ export class SelfDestructConstruct extends Construct {
         parameters: {
           input: JSON.stringify({
             Action: 'Update',
-            Version: new Date().getTime().toString(),
+            Version: `${Date.now()}`,
             StackArn: Stack.of(this).stackId,
             StackName: Stack.of(this).stackName,
           }),
@@ -137,5 +138,7 @@ export class SelfDestructConstruct extends Construct {
         resources: [sm.stateMachineArn],
       }),
     });
+
+    Aspects.of(Stack.of(this)).add(new SelfDestructAspect());
   }
 }
