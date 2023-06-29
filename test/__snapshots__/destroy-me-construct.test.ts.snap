@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DestroyMeConstruct Stack Tagged + Aspect 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "MyTestFunctionE5665775": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "MyTestFunctionServiceRole1183FD15",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async () => { return { statusCode: 200, body: \\"Hello World\\" }; };",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "MyTestFunctionServiceRole1183FD15",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Tags": Array [
+          Object {
+            "Key": "STACK_LIFE",
+            "Value": "86400",
+          },
+        ],
+      },
+      "Type": "AWS::Lambda::Function",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "MyTestFunctionServiceRole1183FD15": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+        "Tags": Array [
+          Object {
+            "Key": "STACK_LIFE",
+            "Value": "86400",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -1,5 +1,5 @@
 {
-  "name": "@aws-community/self-destruct",
+  "name": "@aws-community/ephemeral",
   "author": {
     "email": "matt.martz@gmail.com",
     "name": "Matt Martz",
@@ -8,7 +8,7 @@
   "description": "Ephemeral Stacks! A CDK Stack and Construct that will self-destruct after a specified time period.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws-community-projects/self-destruct"
+    "url": "https://github.com/aws-community-projects/ephemeral"
   },
   "keywords": [
     "aws",
@@ -18,7 +18,7 @@
     "ephemeral"
   ],
   "license": "Apache-2.0",
-  "version": "1.1.0",
+  "version": "2.1.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -35,14 +35,20 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@aws-cdk/integ-runner": "^2.78.0-alpha.0",
-    "@aws-cdk/integ-tests-alpha": "^2.78.0-alpha.0",
+    "@aws-cdk/integ-runner": "^2.85.0-alpha.0",
+    "@aws-cdk/integ-tests-alpha": "^2.85.0-alpha.0",
+    "@aws-sdk/client-cloudformation": "^3.362.0",
+    "@aws-sdk/client-dynamodb": "^3.362.0",
+    "@aws-sdk/lib-dynamodb": "^3.362.0",
+    "@aws-sdk/util-dynamodb": "^3.362.0",
+    "@types/aws-lambda": "^8.10.119",
     "@types/jest": "^27.5.2",
     "@types/node": "^18.11.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
-    "aws-cdk-lib": "2.80.0",
+    "aws-cdk-lib": "2.85.0",
     "constructs": "10.2.17",
+    "esbuild": "^0.18.10",
     "eslint": "^8.25.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "jest": "^27.5.1",
@@ -54,7 +60,7 @@
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "2.80.0",
+    "aws-cdk-lib": "2.85.0",
     "constructs": "10.2.17"
   },
   "jsii": {

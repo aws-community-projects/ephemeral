@@ -1,0 +1,404 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DestroyerStack default 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "cloudformationrule02545F98": Object {
+      "Properties": Object {
+        "EventPattern": Object {
+          "detail-type": Array [
+            "CloudFormation Stack Status Change",
+          ],
+          "source": Array [
+            "aws.cloudformation",
+          ],
+        },
+        "State": "ENABLED",
+        "Targets": Array [
+          Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "fncloudformation6A17746B",
+                "Arn",
+              ],
+            },
+            "Id": "Target0",
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "cloudformationruleAllowEventRuleMyTestStackfncloudformationDE0A3E4EA39C70E5": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "fncloudformation6A17746B",
+            "Arn",
+          ],
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "cloudformationrule02545F98",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "deletefailedrule216BFA59": Object {
+      "Properties": Object {
+        "EventPattern": Object {
+          "detail": Object {
+            "resourceStatus": Array [
+              "DELETE_FAILED",
+            ],
+          },
+          "detail-type": Array [
+            "CloudFormation Stack Status Change",
+          ],
+          "source": Array [
+            "aws.cloudformation",
+          ],
+        },
+        "State": "ENABLED",
+        "Targets": Array [
+          Object {
+            "Arn": Object {
+              "Ref": "failtopic250A40AC",
+            },
+            "Id": "Target0",
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "destroyer90CDE342": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "pk",
+            "AttributeType": "S",
+          },
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "pk",
+            "KeyType": "HASH",
+          },
+        ],
+        "StreamSpecification": Object {
+          "StreamViewType": "NEW_AND_OLD_IMAGES",
+        },
+        "TableName": "destroyer",
+        "TimeToLiveSpecification": Object {
+          "AttributeName": "ttl",
+          "Enabled": true,
+        },
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "failtopic250A40AC": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "failtopicPolicyC77F34EC": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sns:Publish",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "events.amazonaws.com",
+              },
+              "Resource": Object {
+                "Ref": "failtopic250A40AC",
+              },
+              "Sid": "0",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Topics": Array [
+          Object {
+            "Ref": "failtopic250A40AC",
+          },
+        ],
+      },
+      "Type": "AWS::SNS::TopicPolicy",
+    },
+    "fncloudformation6A17746B": Object {
+      "DependsOn": Array [
+        "fncloudformationServiceRoleDefaultPolicy695E4447",
+        "fncloudformationServiceRole4D7AB5BB",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "bed8782c811ba28f77568f4a61c0e7766aee2bbe8d3148a01c8031741f54b029.zip",
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DESTROY_TABLE_NAME": Object {
+              "Ref": "destroyer90CDE342",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "fncloudformationServiceRole4D7AB5BB",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 300,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "fncloudformationServiceRole4D7AB5BB": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "fncloudformationServiceRoleDefaultPolicy695E4447": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "cloudformation:Describe*",
+                "cloudformation:Get*",
+                "cloudformation:List*",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "destroyer90CDE342",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "fncloudformationServiceRoleDefaultPolicy695E4447",
+        "Roles": Array [
+          Object {
+            "Ref": "fncloudformationServiceRole4D7AB5BB",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "fndestroyerBEE7C6F2": Object {
+      "DependsOn": Array [
+        "fndestroyerServiceRoleDefaultPolicyD501AE3F",
+        "fndestroyerServiceRoleB4DC7288",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "56a73d50bd31b4a9652d5db8481605b4c76c8526583c9d6511e90420f04c6c05.zip",
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 1024,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "fndestroyerServiceRoleB4DC7288",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 300,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "fndestroyerDynamoDBEventSourceMyTestStackdestroyer1CD695F6AE037CB6": Object {
+      "Properties": Object {
+        "BatchSize": 100,
+        "EventSourceArn": Object {
+          "Fn::GetAtt": Array [
+            "destroyer90CDE342",
+            "StreamArn",
+          ],
+        },
+        "FunctionName": Object {
+          "Ref": "fndestroyerBEE7C6F2",
+        },
+        "StartingPosition": "LATEST",
+      },
+      "Type": "AWS::Lambda::EventSourceMapping",
+    },
+    "fndestroyerServiceRoleB4DC7288": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "fndestroyerServiceRoleDefaultPolicyD501AE3F": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "dynamodb:ListStreams",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            Object {
+              "Action": Array [
+                "dynamodb:DescribeStream",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "destroyer90CDE342",
+                  "StreamArn",
+                ],
+              },
+            },
+            Object {
+              "Action": "cloudformation:DeleteStack",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "fndestroyerServiceRoleDefaultPolicyD501AE3F",
+        "Roles": Array [
+          Object {
+            "Ref": "fndestroyerServiceRoleB4DC7288",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

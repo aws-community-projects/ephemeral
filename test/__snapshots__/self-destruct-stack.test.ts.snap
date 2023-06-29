@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelfDestructStack Bucket in a construct with no autoDeleteObjects 1`] = `[Error: You are attempting to create a bucket with the Level 2 Bucket construct in an ephemeral stack without autoDeleteObjects enabled.]`;
+exports[`SelfDestructStack Bucket in a construct with no autoDeleteObjects 1`] = `[Error: Level 2 Bucket in an ephemeral stack without autoDeleteObjects]`;
 
-exports[`SelfDestructStack CfnBucket 1`] = `[Error: You are attempting to create a bucket with the Level 1 CfnBucket construct in an ephemeral stack.]`;
+exports[`SelfDestructStack CfnBucket 1`] = `[Error: Level 1 CfnBucket in an ephemeral stack without autoDeleteObjects]`;
 
 exports[`SelfDestructStack Disabled by Default 1`] = `
 Object {
@@ -306,7 +306,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "bb459fac5f6b4b052aac9803443226d161a5cfe96f4648b21f9e4912c698bf30.zip",
+          "S3Key": "c56527323fe165e19e5c38b88f77270ba67c06d0fd17823264a8e1268ef9ce50.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -362,10 +362,10 @@ Object {
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructCR6E953A89": Object {
+    "SelfDestructConstructSelfDestructCRCAF7018A": Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
-        "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392",
+        "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C",
       ],
       "Properties": Object {
         "Create": Object {
@@ -376,9 +376,9 @@ Object {
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -392,9 +392,9 @@ Object {
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -411,13 +411,13 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Update\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
+              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Update\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -427,7 +427,7 @@ Object {
       "Type": "Custom::AWS",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392": Object {
+    "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "PolicyDocument": Object {
@@ -436,13 +436,13 @@ Object {
               "Action": "states:StartExecution",
               "Effect": "Allow",
               "Resource": Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392",
+        "PolicyName": "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C",
         "Roles": Array [
           Object {
             "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
@@ -452,11 +452,11 @@ Object {
       "Type": "AWS::IAM::Policy",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachine74594191": Object {
+    "SelfDestructConstructSelfDestructMachine894D6598": Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
-        "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789",
-        "SelfDestructSelfDestructMachineRole8BFEA857",
+        "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701",
+        "SelfDestructConstructSelfDestructMachineRoleCD49A454",
       ],
       "Properties": Object {
         "DefinitionString": Object {
@@ -481,7 +481,7 @@ Object {
         },
         "RoleArn": Object {
           "Fn::GetAtt": Array [
-            "SelfDestructSelfDestructMachineRole8BFEA857",
+            "SelfDestructConstructSelfDestructMachineRoleCD49A454",
             "Arn",
           ],
         },
@@ -489,7 +489,7 @@ Object {
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachineRole8BFEA857": Object {
+    "SelfDestructConstructSelfDestructMachineRoleCD49A454": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -516,7 +516,7 @@ Object {
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789": Object {
+    "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "PolicyDocument": Object {
@@ -539,10 +539,10 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789",
+        "PolicyName": "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701",
         "Roles": Array [
           Object {
-            "Ref": "SelfDestructSelfDestructMachineRole8BFEA857",
+            "Ref": "SelfDestructConstructSelfDestructMachineRoleCD49A454",
           },
         ],
       },
@@ -804,7 +804,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "bb459fac5f6b4b052aac9803443226d161a5cfe96f4648b21f9e4912c698bf30.zip",
+          "S3Key": "c56527323fe165e19e5c38b88f77270ba67c06d0fd17823264a8e1268ef9ce50.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -860,10 +860,10 @@ Object {
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructCR6E953A89": Object {
+    "SelfDestructConstructSelfDestructCRCAF7018A": Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
-        "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392",
+        "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C",
       ],
       "Properties": Object {
         "Create": Object {
@@ -874,9 +874,9 @@ Object {
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -890,9 +890,9 @@ Object {
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -909,13 +909,13 @@ Object {
           "Fn::Join": Array [
             "",
             Array [
-              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Update\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
+              "{\\"action\\":\\"startExecution\\",\\"parameters\\":{\\"input\\":\\"{\\\\\\"Action\\\\\\":\\\\\\"Update\\\\\\",\\\\\\"StackArn\\\\\\":\\\\\\"",
               Object {
                 "Ref": "AWS::StackId",
               },
-              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\"}\\",\\"stateMachineArn\\":\\"",
+              "\\\\\\",\\\\\\"StackName\\\\\\":\\\\\\"MyTestStack\\\\\\",\\\\\\"Version\\\\\\":\\\\\\"42\\\\\\"}\\",\\"stateMachineArn\\":\\"",
               Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
               "\\"},\\"physicalResourceId\\":{\\"id\\":\\"SelfDestructCR\\"},\\"service\\":\\"StepFunctions\\"}",
             ],
@@ -925,7 +925,7 @@ Object {
       "Type": "Custom::AWS",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392": Object {
+    "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "PolicyDocument": Object {
@@ -934,13 +934,13 @@ Object {
               "Action": "states:StartExecution",
               "Effect": "Allow",
               "Resource": Object {
-                "Ref": "SelfDestructSelfDestructMachine74594191",
+                "Ref": "SelfDestructConstructSelfDestructMachine894D6598",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "SelfDestructSelfDestructCRCustomResourcePolicyCBC8E392",
+        "PolicyName": "SelfDestructConstructSelfDestructCRCustomResourcePolicyD9DDD33C",
         "Roles": Array [
           Object {
             "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
@@ -950,11 +950,11 @@ Object {
       "Type": "AWS::IAM::Policy",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachine74594191": Object {
+    "SelfDestructConstructSelfDestructMachine894D6598": Object {
       "DeletionPolicy": "Delete",
       "DependsOn": Array [
-        "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789",
-        "SelfDestructSelfDestructMachineRole8BFEA857",
+        "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701",
+        "SelfDestructConstructSelfDestructMachineRoleCD49A454",
       ],
       "Properties": Object {
         "DefinitionString": Object {
@@ -979,7 +979,7 @@ Object {
         },
         "RoleArn": Object {
           "Fn::GetAtt": Array [
-            "SelfDestructSelfDestructMachineRole8BFEA857",
+            "SelfDestructConstructSelfDestructMachineRoleCD49A454",
             "Arn",
           ],
         },
@@ -987,7 +987,7 @@ Object {
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachineRole8BFEA857": Object {
+    "SelfDestructConstructSelfDestructMachineRoleCD49A454": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -1014,7 +1014,7 @@ Object {
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Delete",
     },
-    "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789": Object {
+    "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "PolicyDocument": Object {
@@ -1037,10 +1037,10 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "SelfDestructSelfDestructMachineRoleDefaultPolicy53A50789",
+        "PolicyName": "SelfDestructConstructSelfDestructMachineRoleDefaultPolicyDA141701",
         "Roles": Array [
           Object {
-            "Ref": "SelfDestructSelfDestructMachineRole8BFEA857",
+            "Ref": "SelfDestructConstructSelfDestructMachineRoleCD49A454",
           },
         ],
       },

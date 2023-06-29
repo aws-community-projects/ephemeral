@@ -1,0 +1,107 @@
+import { App, Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+
+import { DestroyMeStack } from '../src';
+import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
+import { Construct } from 'constructs';
+
+describe('DestroyMeStack', () => {
+  test('Disabled by Default', () => {
+    const app = new App();
+    const stack = new DestroyMeStack(app, 'MyTestStack');
+    const template = Template.fromStack(stack);
+
+    template.resourceCountIs('AWS::StepFunctions::StateMachine', 0);
+
+    expect(template).toMatchSnapshot();
+  });
+
+  test('Disabled with no props', () => {
+    const app = new App();
+    const stack = new DestroyMeStack(app, 'MyTestStack', {
+    });
+    const template = Template.fromStack(stack);
+
+    template.resourceCountIs('AWS::StepFunctions::StateMachine', 0);
+
+    expect(template).toMatchSnapshot();
+  });
+
+  test('Enabled', () => {
+    const app = new App();
+    const stack = new DestroyMeStack(app, 'MyTestStack', {
+      destroyMeEnable: true,
+    });
+    const template = Template.fromStack(stack);
+
+    template.resourceCountIs('AWS::StepFunctions::StateMachine', 0);
+
+    expect(template).toMatchSnapshot();
+  });
+
+  test('Enabled w/Duration', () => {
+    const app = new App();
+    const stack = new DestroyMeStack(app, 'MyTestStack', {
+      destroyMeEnable: true,
+      destroyMeDuration: Duration.days(1),
+    });
+    const template = Template.fromStack(stack);
+
+    template.resourceCountIs('AWS::StepFunctions::StateMachine', 0);
+
+    expect(template).toMatchSnapshot();
+  });
+
+  test('Bucket in a construct with no autoDeleteObjects', () => {
+    expect.assertions(1);
+    class TestConstruct extends Construct {
+      constructor (scope: Construct, id: string) {
+        super(scope, id);
+
+        new Bucket(this, 'Bucket', {
+          removalPolicy: RemovalPolicy.DESTROY,
+        });
+      }
+    }
+    class TestDestroyMeStack extends DestroyMeStack {
+      constructor (scope: App, id: string) {
+        super(scope, id, {
+          destroyMeEnable: true,
+        });
+
+        new Bucket(this, 'Bucket', {
+          autoDeleteObjects: true,
+          removalPolicy: RemovalPolicy.DESTROY,
+        });
+        new TestConstruct(this, 'TestConstruct');
+      }
+    }
+    try {
+      const app = new App();
+      const stack = new TestDestroyMeStack(app, 'MyTestStack');
+      Template.fromStack(stack);
+    } catch (e) {
+      expect(e).toMatchSnapshot();
+    }
+  });
+
+  test('CfnBucket', () => {
+    expect.assertions(1);
+    class TestDestroyMeStack extends DestroyMeStack {
+      constructor (scope: App, id: string) {
+        super(scope, id, {
+          destroyMeEnable: true,
+        });
+
+        new CfnBucket(this, 'Bucket');
+      }
+    }
+    try {
+      const app = new App();
+      const stack = new TestDestroyMeStack(app, 'MyTestStack');
+      Template.fromStack(stack);
+    } catch (e) {
+      expect(e).toMatchSnapshot();
+    }
+  });
+});

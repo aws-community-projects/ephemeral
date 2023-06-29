@@ -1,6 +1,7 @@
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Choice,
   Condition,
+  DefinitionBody,
   Map,
   Pass,
   StateMachine,
@@ -91,7 +92,7 @@ export class SelfDestructConstruct extends Construct {
     deleteStack.next(finished);
 
     const sm = new StateMachine(this, 'SelfDestructMachine', {
-      definition: listExecutions,
+      definitionBody: DefinitionBody.fromChainable(listExecutions),
     });
 
     const sdkCall = (Action: string): AwsSdkCall => ({
