@@ -1,5 +1,5 @@
 import { StackProps, Duration, Stack } from 'aws-cdk-lib';
-import { DestroyMeConstruct } from './destroy-me';
+import { DestroyMeConstruct } from './destroy-me-construct';
 import { Construct } from 'constructs';
 
 export interface DestroyMeStackProps extends StackProps {
