@@ -20,7 +20,7 @@ export class SelfDestructStack extends Stack {
     } = props;
 
     if (enable) {
-      new SelfDestructConstruct(this, 'SelfDestruct', {
+      new SelfDestructConstruct(this, 'SelfDestructConstruct', {
         duration: duration ?? Duration.days(7),
       });
     } else {

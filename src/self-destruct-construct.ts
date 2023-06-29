@@ -11,6 +11,7 @@ import { Construct } from 'constructs';
 import { Aspects, Duration, Stack } from 'aws-cdk-lib';
 import { AwsCustomResource,
   AwsCustomResourcePolicy,
+  AwsSdkCall,
   PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { SelfDestructAspect } from './self-destruct-aspect';
 
@@ -93,47 +94,25 @@ export class SelfDestructConstruct extends Construct {
       definition: listExecutions,
     });
 
+    const sdkCall = (Action: string): AwsSdkCall => ({
+      action: 'startExecution',
+      parameters: {
+        input: JSON.stringify({
+          Action,
+          StackArn: Stack.of(this).stackId,
+          StackName: Stack.of(this).stackName,
+          Version: `${Date.now()}`,
+        }),
+        stateMachineArn: sm.stateMachineArn,
+      },
+      physicalResourceId: PhysicalResourceId.of('SelfDestructCR'),
+      service: 'StepFunctions',
+    });
+
     new AwsCustomResource(this, 'SelfDestructCR', {
-      onCreate: {
-        action: 'startExecution',
-        parameters: {
-          input: JSON.stringify({
-            Action: 'Create',
-            StackArn: Stack.of(this).stackId,
-            StackName: Stack.of(this).stackName,
-          }),
-          stateMachineArn: sm.stateMachineArn,
-        },
-        physicalResourceId: PhysicalResourceId.of('SelfDestructCR'),
-        service: 'StepFunctions',
-      },
-      onDelete: {
-        action: 'startExecution',
-        parameters: {
-          input: JSON.stringify({
-            Action: 'Delete',
-            StackArn: Stack.of(this).stackId,
-            StackName: Stack.of(this).stackName,
-          }),
-          stateMachineArn: sm.stateMachineArn,
-        },
-        physicalResourceId: PhysicalResourceId.of('SelfDestructCR'),
-        service: 'StepFunctions',
-      },
-      onUpdate: {
-        action: 'startExecution',
-        parameters: {
-          input: JSON.stringify({
-            Action: 'Update',
-            Version: `${Date.now()}`,
-            StackArn: Stack.of(this).stackId,
-            StackName: Stack.of(this).stackName,
-          }),
-          stateMachineArn: sm.stateMachineArn,
-        },
-        physicalResourceId: PhysicalResourceId.of('SelfDestructCR'),
-        service: 'StepFunctions',
-      },
+      onCreate: sdkCall('Create'),
+      onDelete: sdkCall('Delete'),
+      onUpdate: sdkCall('Update'),
       policy: AwsCustomResourcePolicy.fromSdkCalls({
         resources: [sm.stateMachineArn],
       }),
